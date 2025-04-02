@@ -13,8 +13,8 @@ const classes = cva("text-sm tracking-widest uppercase font-bold h-10 px-6 round
     },
 
     variant: {
-      primary: "border-2 border-transparent [background:linear-gradient(#030712,#030712)_padding-box,conic-gradient(from_45deg,#8b5cf6,#e879f9,#fbbf24,#2dd4bf,#8b5cf6)_border-box]",
-      secondary: '',
+      primary: "border-gradient",
+      secondary: "bg-gray-100 text-gray-950 ",
       tertiary: "bg-gray-800 text-gray-200"
     },
 

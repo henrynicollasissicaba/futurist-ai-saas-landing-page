@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
-@theme {
-  --color-my-violet: var(--color-violet-400);
-  --color-fuchsia: var(--color-fuchsia-400);
-  --color-amber: var(--color-amber-300);
-  --color-teal: var(--color-teal-300);
+@theme static {
+  --color-color-border: --alpha(var(--color-gray-200) / 30%)
 }
 
 @layer components {
+  .container {
+    @apply mx-auto px-4
+  }
+
   .absolute-center {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+  }
+
+  .border-gradient {
+    @apply border-2 border-transparent [background:linear-gradient(#030712,#030712)_padding-box,conic-gradient(from_45deg,#8b5cf6,#e879f9,#fbbf24,#2dd4bf,#8b5cf6)_border-box]
   }
 }
