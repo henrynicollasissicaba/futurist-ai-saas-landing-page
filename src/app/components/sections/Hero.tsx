@@ -5,15 +5,16 @@ import underlineImage from "@/assets/underline.svg"
 import Loader from "../Loader"
 import Orbit from "../Orbit"
 import Planet from "../Planet"
+import SectionBorder from "../SectionBorder"
+import SectionContent from "../SectionContent"
 
 export default function Hero(){
     return(
         <section>
             <div className="container">
-                <div className="border-l border-r border-color-border">
-                    <div 
-                        className="container py-24 md:py-36 lg:py-48 relative isolate overflow-hidden 
-                        [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
+                <SectionBorder>
+                    <SectionContent 
+                        className="relative isolate [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
                     >
                         <div 
                             className="absolute inset-0 -z-10 bg-[radial-gradient(circle_farthest-corner,#721378_50%,#312c85_75%,transparent)]
@@ -121,8 +122,8 @@ export default function Hero(){
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </SectionContent>
+                </SectionBorder>
             </div>
         </section>
     )
