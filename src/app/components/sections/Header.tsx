@@ -5,6 +5,7 @@ import Button, { ButtonProps } from "../Button";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import Orbit from "../Orbit";
+import SpherealLogo from "../logos/SpherealLogo";
 
 export const navItems = [
     {
@@ -47,15 +48,7 @@ export default function Header() {
                 <div className="container">
                     <div className="h-18 lg:h-20 flex justify-between items-center">
                         <div className="flex gap-4 items-center">
-                            <div 
-                                className="size-10 bg-gray-200 bg-[conic-gradient(from_45deg,#8b5cf6,#e879f9,#fbbf24,#2dd4bf,#8b5cf6)]"
-                                style={{
-                                    maskImage: `url(${imageLogo.src})`,
-                                    maskSize: "contain"
-                                }}
-                            >
-
-                            </div>
+                            <SpherealLogo size="sm" />
                             <span className="font-extrabold text-2xl">sphereal.ai</span>
                         </div>
 
