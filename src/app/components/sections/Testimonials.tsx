@@ -46,7 +46,7 @@ const SELECTED_TESTIMONIAL_INDEX = 0
 
 export default function Testimonials(){
     return(
-        <section>
+        <section id="testimonials">
             <div className="container">
                 <SectionBorder borderTop>
                     <SectionContent>
@@ -56,7 +56,7 @@ export default function Testimonials(){
                         >
                             <FontAwesomeIcon 
                                 icon={faQuoteLeft}
-                                className="absolute size-[200px] text-violet-400 top-0 left-6 md:left-10 lg:left-16 -translate-y-1/2"
+                                className="absolute !size-20 text-violet-400 top-0 left-6 md:left-10 lg:left-16 -translate-y-1/2"
                             />
                             {testimonials.map((testimonial, index) => (
                                 <React.Fragment key={testimonial.name}>

@@ -66,7 +66,7 @@ const logos = [
 
 export default function Features(){
     return(
-        <section>
+        <section id="features">
             <div className="container">
                 <SectionBorder borderTop>
                     <SectionContent className="md:px-20 lg:px-40">
@@ -76,7 +76,7 @@ export default function Features(){
                                 <ul className="mt-12 flex flex-col gap-8">
                                     {features.map((feature, index) => (
                                         <li key={index} className="flex items-center gap-4">
-                                            <FontAwesomeIcon icon={faCircleCheck} className="size-6 text-violet-400" />
+                                            <FontAwesomeIcon icon={faCircleCheck} className="!size-6 text-violet-400" />
                                             <span className="font-medium text-xl">
                                                 {feature}
                                             </span>

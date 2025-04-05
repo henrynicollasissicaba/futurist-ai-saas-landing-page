@@ -62,7 +62,7 @@ const pricingTiers = [
 
 export default function Pricing(){
     return(
-        <section>
+        <section id="pricing">
             <div className="container">
                 <SectionBorder borderTop>
                     <SectionContent>
@@ -112,7 +112,7 @@ export default function Pricing(){
                                             >
                                                 <FontAwesomeIcon 
                                                     icon={faCheckCircle} 
-                                                    className="size-6 text-violet-400 flex-shrink-0"
+                                                    className="!size-6 text-violet-400 flex-shrink-0"
                                                 />
                                                 <span className="font-medium">{feature}</span>
                                             </li>
