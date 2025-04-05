@@ -1,7 +1,23 @@
 @import "tailwindcss";
 
-@theme static {
-  --color-color-border: --alpha(var(--color-gray-200) / 30%)
+@theme {
+  --color-color-border: --alpha(var(--color-gray-200) / 30%);
+
+  --animate-cursor-blink: cursor-blink 1s step-start infinite;
+  
+  @keyframes cursor-blink {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 @layer components {

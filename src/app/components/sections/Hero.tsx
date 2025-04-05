@@ -1,16 +1,63 @@
+"use client"
+
 import robotImage from "@/assets/robot.jpg"
 import Image from "next/image"
 import Button from "../Button"
 import underlineImage from "@/assets/underline.svg"
-import Loader from "../Loader"
 import Orbit from "../Orbit"
 import Planet from "../Planet"
 import SectionBorder from "../SectionBorder"
 import SectionContent from "../SectionContent"
+import LoaderAnimated from "../LoaderAnimated"
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+
+const useMousePosition = () => {
+    const [innerWidth, setInnerWidth] = useState(1)
+    const [innerHeight, setInnerHeight] = useState(1)
+    const clientX = useMotionValue(0)
+    const clientY = useMotionValue(0)
+    const xProgress = useTransform(clientX, [0, innerWidth], [0, 1])
+    const yProgress = useTransform(clientY, [0, innerHeight], [0, 1])
+
+    useEffect(() => {
+        setInnerWidth(window.innerWidth)
+        setInnerHeight(window.innerHeight)
+
+        window.addEventListener("resize", () => {
+            setInnerWidth(window.innerWidth)
+            setInnerHeight(window.innerHeight)
+        })
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener("mousemove", (e) => {
+            clientX.set(e.clientX)
+            clientY.set(e.clientY)
+        })
+    }, [])
+
+    return { xProgress, yProgress }
+}
 
 export default function Hero(){
+    const { xProgress, yProgress } = useMousePosition()
+    const sectionRef = useRef(null)
+
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ['end start', 'start end']
+    })
+
+    const springX = useSpring(xProgress)
+    const springY = useSpring(yProgress)
+
+    const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200])
+    const translateX = useTransform(springX, [0, 1], ['-25%', '25%'])
+    const translateY = useTransform(springY, [0, 1], ['-25%', '25%'])
+
     return(
-        <section>
+        <section ref={sectionRef}>
             <div className="container">
                 <SectionBorder>
                     <SectionContent 
@@ -66,7 +113,13 @@ export default function Hero(){
                             </Button>
                         </div>
                         <div className="relative isolate max-w-5xl mx-auto">
-                            <div className="absolute left-1/2 top-0">
+                            <motion.div 
+                                className="absolute left-1/2 top-0" 
+                                style={{
+                                    x: translateX,
+                                    y: translateY
+                                }}
+                            >
                                 <Planet 
                                     size="lg" 
                                     color="violet" 
@@ -87,20 +140,30 @@ export default function Hero(){
                                     color="teal" 
                                     className="translate-x-[490px] -translate-y-[340px] -rotate-135"
                                 />
-                            </div>
+                            </motion.div>
                             <div className="absolute top-[30%] left-0 z-10 -translate-x-10 hidden lg:block">
-                                <div className="bg-gray-800/70 backdrop-blur-md rounded-xl border border-gray-700 p-4 w-72">
+                                <motion.div 
+                                    className="bg-gray-800/70 backdrop-blur-md rounded-xl border border-gray-700 p-4 w-72"
+                                    style={{
+                                        y: transformedY
+                                    }}
+                                >
                                     <div>Can you generate an incredible frontend dev video tutorial?</div>
                                     <div className="text-right text-gray-400 text-sm font-semibold">1m ago</div>
-                                </div>
+                                </motion.div>
                             </div>
                             <div className="absolute top-[50%] right-0 z-10 translate-x-10 hidden lg:block">
-                                <div className="bg-gray-800/70 backdrop-blur-md rounded-xl border border-gray-700 p-4 w-72">
+                                <motion.div 
+                                    className="bg-gray-800/70 backdrop-blur-md rounded-xl border border-gray-700 p-4 w-72"
+                                    style={{
+                                        y: transformedY
+                                    }}
+                                >
                                     <div>
                                         <strong>Brainwave: </strong>I created one based on videos for Frontend Tribe!
                                     </div>
                                     <div className="text-right text-gray-400 text-sm font-semibold">Just now</div>
-                                </div>
+                                </motion.div>
                             </div>
                             <div className="mt-20 rounded-2xl overflow-hidden border-gradient relative flex">
                                 <Image 
@@ -114,9 +177,9 @@ export default function Hero(){
                                     <div 
                                         className="bg-gray-950/80 flex items-center w-[320px] max-w-full px-4 py-2 rounded-2xl gap-4"
                                     >
-                                        <Loader className="text-violet-400" />
-                                        <div className="font-semibold text-xl text-gray-100">
-                                            AI is generating<span>|</span>
+                                        <LoaderAnimated className="text-violet-400" />
+                                        <div className="font-semibold text-sm md:text-lg lg:text-xl text-gray-100">
+                                            AI is generating<span className="animate-cursor-blink">|</span>
                                         </div>
                                     </div>
                                 </div>
