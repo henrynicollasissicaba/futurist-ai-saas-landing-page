@@ -1,3 +1,5 @@
+"use client"
+
 import AcmeLogo from "../logos/AcmeLogo"
 import ApexLogo from "../logos/ApexLogo"
 import CelestialLogo from "../logos/CelestialLogo"
@@ -7,6 +9,7 @@ import PulseLogo from "../logos/PulseLogo"
 import QuantumLogo from "../logos/QuantumLogo"
 import SectionBorder from "../SectionBorder"
 import SectionContent from "../SectionContent"
+import { motion } from "framer-motion"
 
 const companies = [
     {
@@ -49,13 +52,22 @@ export default function Companies(){
                             Empowering creators at leading companies
                         </h2>
                         <div className="flex mt-20 overflow-x-clip -mx-4">
-                            <div className="flex flex-none gap-18 md:gap-36 px-12">
-                                {companies.map(({ name, logo: Logo }) => (
-                                    <div key={name}>
+                            <motion.div 
+                                className="flex flex-none gap-18 md:gap-36 px-9 md:px-18"
+                                initial={{ x:0 }}
+                                animate={{ x: "-50%" }}
+                                transition={{
+                                    duration: 20,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                            >
+                                {[...companies, ...companies].map(({ logo: Logo }, index) => (
+                                    <div key={index}>
                                         <Logo className="h-8" />
                                     </div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     </SectionContent>
                 </SectionBorder>
