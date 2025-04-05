@@ -1,3 +1,5 @@
+"use client"
+
 import slackLogo from "@/assets/slack-logo.png"
 import dockerLogo from "@/assets/docker-logo.png"
 import figmaLogo from "@/assets/figma-logo.png"
@@ -14,6 +16,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
 import Orbit from "../Orbit"
 import SpherealLogo from "../logos/SpherealLogo"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 const features = [
     "Effortless integration",
@@ -99,24 +102,73 @@ export default function Features(){
                                         <SpherealLogo size="lg"/>
                                     </div>
                                     {logos.map(({ src, alt, rotate }) => (
-                                        <div 
+                                        <motion.div 
                                             className="absolute inset-0"
-                                            style={{
-                                                transform: `rotate(${rotate}deg)`
+                                            initial={{ rotate }}
+                                            transition={{
+                                                duration: 15,
+                                                repeat: Infinity
+                                            }}
+                                            animate={{
+                                                rotate: [
+                                                    rotate,
+                                                    rotate + 45,
+                                                    rotate + 45,
+                                                    rotate + 90,
+                                                    rotate + 90,
+                                                    rotate + 135,
+                                                    rotate + 135,
+                                                    rotate + 180, 
+                                                    rotate + 180,
+                                                    rotate + 225,
+                                                    rotate + 225,
+                                                    rotate + 270,
+                                                    rotate + 270,
+                                                    rotate + 315,
+                                                    rotate + 315,
+                                                    rotate + 360,
+                                                    rotate + 360
+                                                ]
                                             }}
                                             key={alt}
                                         >
-                                            <div 
+                                            <motion.div 
                                                 className="inline-flex size-10 md:size-14 items-center justify-center border 
                                                 bg-gray-950 border-color-border rounded-lg absolute left-0 top-1/2 
                                                 -translate-x-1/2 -translate-y-1/2"
-                                                style={{
-                                                    transform: `rotate(-${rotate}deg)`
+                                                initial={{ 
+                                                    translate: `-50%, -50%`,
+                                                    rotate: -rotate
+                                                }}
+                                                transition={{
+                                                    duration: 15,
+                                                    repeat: Infinity
+                                                }}
+                                                animate={{
+                                                    rotate: [
+                                                        -rotate,
+                                                        -rotate - 45,
+                                                        -rotate - 45,
+                                                        -rotate - 90,
+                                                        -rotate - 90,
+                                                        -rotate - 135,
+                                                        -rotate - 135,
+                                                        -rotate - 180, 
+                                                        -rotate - 180,
+                                                        -rotate - 225,
+                                                        -rotate - 225,
+                                                        -rotate - 270,
+                                                        -rotate - 270,
+                                                        -rotate - 315,
+                                                        -rotate - 315,
+                                                        -rotate - 360,
+                                                        -rotate - 360
+                                                    ]
                                                 }}
                                             >
                                                 <Image src={src} alt={alt} className="size-6 md:size-9" />
-                                            </div>
-                                        </div>
+                                            </motion.div>
+                                        </motion.div>
                                     ))}
                                 </div>
                             </div>
