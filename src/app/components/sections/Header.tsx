@@ -1,6 +1,5 @@
 "use client"
 
-import imageLogo from "@/assets/sphereal-logo.svg"
 import Button, { ButtonProps } from "../Button";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
