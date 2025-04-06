@@ -1,11 +1,23 @@
+"use client"
+
 import Button from "../Button";
 import Orbit from "../Orbit";
 import Planet from "../Planet";
 import SectionBorder from "../SectionBorder";
 import SectionContent from "../SectionContent";
 import underlineImage from "@/assets/underline.svg"
+import { useMousePosition } from "./Hero";
+import { motion, useSpring, useTransform } from "framer-motion";
 
 export default function CallToAction(){
+    const { xProgress, yProgress } = useMousePosition()
+
+    const springX = useSpring(xProgress)
+    const springY = useSpring(yProgress)
+
+    const translateX = useTransform(springX, [0, 1], ['-25%', '25%'])
+    const translateY = useTransform(springY, [0, 1], ['-25%', '25%'])
+
     return(
         <section>
             <div className="container">
@@ -22,7 +34,13 @@ export default function CallToAction(){
                             <Orbit className="size-[650px] absolute-center"/>
                             <Orbit className="size-[800px] absolute-center"/>
                         </div>
-                        <div className="absolute-center -z-10">
+                        <motion.div 
+                            className="absolute-center -z-10"
+                            style={{
+                                x: translateX,
+                                y: translateY
+                            }}
+                        >
                             <Planet 
                                 size="lg" 
                                 color="violet"
@@ -53,7 +71,7 @@ export default function CallToAction(){
                                 color="fuchsia"
                                 className="translate-x-[400px] translate-y-[150px] -rotate-45"
                             />
-                        </div>
+                        </motion.div>
                         <h2 
                             className="text-gray-200 font-semibold text-3xl md:text-4xl lg:text-5xl text-center leading-tight
                             max-w-3xl mx-auto"
