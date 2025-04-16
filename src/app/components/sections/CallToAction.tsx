@@ -1,13 +1,13 @@
 "use client"
 
 import Button from "../Button";
-import Orbit from "../Orbit";
-import Planet from "../Planet";
+import { OrbitsSystem } from "../Orbit";
 import SectionBorder from "../SectionBorder";
 import SectionContent from "../SectionContent";
 import underlineImage from "@/assets/underline.svg"
 import { useMousePosition } from "./Hero";
 import { motion, useSpring, useTransform } from "framer-motion";
+import CallToActionPlanets from "../planets/CallToActionPlanets";
 
 export default function CallToAction(){
     const { xProgress, yProgress } = useMousePosition()
@@ -27,13 +27,9 @@ export default function CallToAction(){
                             className="absolute inset-0 bg-[radial-gradient(circle_farthest-corner,#721378_50%,#312c85_75%,transparent)]
                             [mask-image:radial-gradient(circle_farthest-side,black,transparent)] -z-10" 
                         />
-                        <div className="absolute inset-0 -z-10">
-                            <Orbit className="size-[200px] absolute-center"/>
-                            <Orbit className="size-[350px] absolute-center"/>
-                            <Orbit className="size-[500px] absolute-center"/>
-                            <Orbit className="size-[650px] absolute-center"/>
-                            <Orbit className="size-[800px] absolute-center"/>
-                        </div>
+
+                        <OrbitsSystem count={5} />
+
                         <motion.div 
                             className="absolute-center -z-10"
                             style={{
@@ -41,36 +37,7 @@ export default function CallToAction(){
                                 y: translateY
                             }}
                         >
-                            <Planet 
-                                size="lg" 
-                                color="violet"
-                                className="translate-y-[200px] -translate-x-[200px] rotate-45"
-                            />
-                            <Planet 
-                                size="lg" 
-                                color="violet"
-                                className="-translate-y-[200px] translate-x-[200px] -rotate-135"
-                            />
-                            <Planet 
-                                size="md" 
-                                color="teal"
-                                className="-translate-x-[500px] rotate-90"
-                            />
-                            <Planet 
-                                size="md" 
-                                color="teal"
-                                className="translate-x-[500px] -translate-y-[100px] -rotate-135"
-                            />
-                            <Planet 
-                                size="sm" 
-                                color="fuchsia"
-                                className="-translate-x-[400px] -translate-y-[250px] rotate-135"
-                            />
-                            <Planet 
-                                size="sm" 
-                                color="fuchsia"
-                                className="translate-x-[400px] translate-y-[150px] -rotate-45"
-                            />
+                            <CallToActionPlanets />
                         </motion.div>
                         <h2 
                             className="text-gray-200 font-semibold text-3xl md:text-4xl lg:text-5xl text-center leading-tight

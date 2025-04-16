@@ -1,11 +1,15 @@
-function Orbit({ size }: { size: number }){
+import { HTMLAttributes } from "react"
+import { twMerge } from "tailwind-merge"
+
+interface OrbitProps extends HTMLAttributes<HTMLDivElement>{
+    size?: number
+    className?: string
+}
+
+function Orbit({ size, className }: OrbitProps){
     return(
         <div
-            className="border border-gray-200/30 rounded-full"
-            style={{
-                width: `${size}px`,
-                height: `${size}px`
-            }}
+            className={twMerge(`border border-gray-200/30 rounded-full size-[${size}px]`, className)}
         ></div>
     )
 }
@@ -16,7 +20,7 @@ interface OrbitsSystemProps {
     step?: number
 }
 
-export default function OrbitsSystem({ count, baseSize = 200, step = 150 }: OrbitsSystemProps){
+function OrbitsSystem({ count, baseSize = 200, step = 150 }: OrbitsSystemProps){
     return(
         <>
             {Array.from({ length: count }).map((_, i) => {
@@ -33,3 +37,5 @@ export default function OrbitsSystem({ count, baseSize = 200, step = 150 }: Orbi
         </>
     )
 }
+
+export { Orbit, OrbitsSystem }

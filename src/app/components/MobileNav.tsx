@@ -1,6 +1,6 @@
 import { loginItems, navItems } from "../utils";
 import Button from "./Button";
-import OrbitsSystem from "./Orbit";
+import { OrbitsSystem } from "./Orbit";
 
 interface MobileNavProps {
     isOpen: boolean

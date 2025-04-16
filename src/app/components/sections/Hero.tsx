@@ -4,14 +4,14 @@ import robotImage from "@/assets/robot.jpg"
 import Image from "next/image"
 import Button from "../Button"
 import underlineImage from "@/assets/underline.svg"
-import Orbit from "../Orbit"
 import Planet from "../Planet"
 import SectionBorder from "../SectionBorder"
 import SectionContent from "../SectionContent"
 import LoaderAnimated from "../LoaderAnimated"
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
-import OrbitsSystem from "../Orbit"
+import { OrbitsSystem } from "../Orbit"
+import HeroPlanets from "../planets/HeroPlanets"
 
 export const useMousePosition = () => {
     const [innerWidth, setInnerWidth] = useState(1)
@@ -53,9 +53,10 @@ export default function Hero(){
     const springX = useSpring(xProgress)
     const springY = useSpring(yProgress)
 
-    const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200])
     const translateX = useTransform(springX, [0, 1], ['-25%', '25%'])
     const translateY = useTransform(springY, [0, 1], ['-25%', '25%'])
+    
+    const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200])
 
     return(
         <section ref={sectionRef}>
@@ -113,26 +114,7 @@ export default function Hero(){
                                     y: translateY
                                 }}
                             >
-                                <Planet 
-                                    size="lg" 
-                                    color="violet" 
-                                    className="-translate-x-[312px] -translate-y-[80px] rotate-135"
-                                />
-                                <Planet 
-                                    size="lg" 
-                                    color="violet" 
-                                    className="translate-x-[335px] -translate-y-[190px] -rotate-135"
-                                />
-                                <Planet 
-                                    size="sm" 
-                                    color="fuchsia" 
-                                    className="-translate-x-[510px] -translate-y-[370px] rotate-135"
-                                />
-                                <Planet 
-                                    size="md" 
-                                    color="teal" 
-                                    className="translate-x-[490px] -translate-y-[340px] -rotate-135"
-                                />
+                                <HeroPlanets />
                             </motion.div>
                             <div className="absolute top-[30%] left-0 z-10 -translate-x-10 hidden lg:block">
                                 <motion.div 
