@@ -94,7 +94,7 @@ export default function Testimonials(){
                                     {testimonials.map((testimonial, index) => (
                                         <div 
                                             key={testimonial.name} 
-                                            className="size-6 relative isolate inline-flex items-center justify-center"
+                                            className="size-6 relative isolate inline-flex items-center justify-center cursor-pointer"
                                             onClick={() => setTestimonialIndex(index)}
                                         >
                                             {testimonialIndex === index && (
