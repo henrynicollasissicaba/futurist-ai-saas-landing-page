@@ -3,43 +3,15 @@
 import robotImage from "@/assets/robot.jpg"
 import Image from "next/image"
 import Button from "../Button"
-import underlineImage from "@/assets/underline.svg"
-import Planet from "../Planet"
 import SectionBorder from "../SectionBorder"
 import SectionContent from "../SectionContent"
 import LoaderAnimated from "../LoaderAnimated"
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { motion, useScroll, useSpring, useTransform } from "framer-motion"
+import { useRef } from "react"
 import { OrbitsSystem } from "../Orbit"
 import HeroPlanets from "../planets/HeroPlanets"
-
-export const useMousePosition = () => {
-    const [innerWidth, setInnerWidth] = useState(1)
-    const [innerHeight, setInnerHeight] = useState(1)
-    const clientX = useMotionValue(0)
-    const clientY = useMotionValue(0)
-    const xProgress = useTransform(clientX, [0, innerWidth], [0, 1])
-    const yProgress = useTransform(clientY, [0, innerHeight], [0, 1])
-
-    useEffect(() => {
-        setInnerWidth(window.innerWidth)
-        setInnerHeight(window.innerHeight)
-
-        window.addEventListener("resize", () => {
-            setInnerWidth(window.innerWidth)
-            setInnerHeight(window.innerHeight)
-        })
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener("mousemove", (e) => {
-            clientX.set(e.clientX)
-            clientY.set(e.clientY)
-        })
-    }, [])
-
-    return { xProgress, yProgress }
-}
+import useMousePosition from "@/app/hooks/useMousePosition"
+import SpherealText from "../SpherealText"
 
 export default function Hero(){
     const { xProgress, yProgress } = useMousePosition()
@@ -82,16 +54,7 @@ export default function Hero(){
                         >
                             Unlock the Future of AI Conversations with{" "}
                             <span className="relative">
-                                <span>Sphereal</span>
-                                <span 
-                                    className="absolute top-full left-0 w-full h-4 -translate-y-1/2 bg-[linear-gradient(to_right,#fbbf24,#2dd4bf,#8b5cf6,#e879f9)]"
-                                    style={{
-                                        maskImage: `url(${underlineImage.src})`,
-                                        maskSize: "contain",
-                                        maskPosition: "center",
-                                        maskRepeat: "no-repeat"
-                                    }}
-                                ></span>
+                                <SpherealText />
                             </span>
                         </h1>
                         <p className="text-lg md:text-xl text-center mt-8 max-w-3xl mx-auto">

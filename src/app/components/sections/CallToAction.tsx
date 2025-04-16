@@ -4,10 +4,10 @@ import Button from "../Button";
 import { OrbitsSystem } from "../Orbit";
 import SectionBorder from "../SectionBorder";
 import SectionContent from "../SectionContent";
-import underlineImage from "@/assets/underline.svg"
-import { useMousePosition } from "./Hero";
+import useMousePosition from "@/app/hooks/useMousePosition";
 import { motion, useSpring, useTransform } from "framer-motion";
 import CallToActionPlanets from "../planets/CallToActionPlanets";
+import SpherealText from "../SpherealText";
 
 export default function CallToAction(){
     const { xProgress, yProgress } = useMousePosition()
@@ -45,17 +45,7 @@ export default function CallToAction(){
                         >
                             Join the AI Revolution with{" "} 
                             <span className="relative isolate">
-                                <span>Sphereal</span>
-                                <span 
-                                    className="bg-[linear-gradient(to_right,#fbbf24,#2dd4bf,#8b5cf6,#e879f9)]
-                                    absolute top-full left-0 w-full h-4 -translate-y-1/2"
-                                    style={{
-                                        maskImage: `url(${underlineImage.src})`,
-                                        maskSize: "contain",
-                                        maskPosition: "center",
-                                        maskRepeat: "no-repeat"
-                                    }}
-                                ></span>
+                                <SpherealText />
                             </span>
                         </h2>
                         <p className="text-center text-xl mt-8 max-w-2xl mx-auto">

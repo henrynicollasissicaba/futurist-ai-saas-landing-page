@@ -1,4 +1,5 @@
 import { ButtonProps } from "../components/Button";
+import { faYoutube, faXTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export const navItems = [
     {
@@ -31,3 +32,21 @@ export const loginItems = [
     href: string
     buttonVariant: ButtonProps['variant']
 }[];
+
+export const socialLinks = [
+    {
+      name: "Youtube",
+      icon: faYoutube,
+      href: "#",
+    },
+    {
+      name: "X",
+      icon: faXTwitter,
+      href: "#",
+    },
+    {
+      name: "Discord",
+      icon: faDiscord,
+      href: "#",
+    },
+];

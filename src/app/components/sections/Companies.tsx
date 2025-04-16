@@ -1,46 +1,9 @@
 "use client"
 
-import AcmeLogo from "../logos/AcmeLogo"
-import ApexLogo from "../logos/ApexLogo"
-import CelestialLogo from "../logos/CelestialLogo"
-import EchoValleyLogo from "../logos/EchoValleyLogo"
-import OutsideLogo from "../logos/OutsideLogo"
-import PulseLogo from "../logos/PulseLogo"
-import QuantumLogo from "../logos/QuantumLogo"
+import { companies } from "@/app/utils/companies"
 import SectionBorder from "../SectionBorder"
 import SectionContent from "../SectionContent"
 import { motion } from "framer-motion"
-
-const companies = [
-    {
-        name: "Acme",
-        logo: AcmeLogo
-    },
-    {
-        name: "Apex",
-        logo: ApexLogo
-    },
-    {
-        name: "Celestial",
-        logo: CelestialLogo
-    },
-    {
-        name: "Echo Valley",
-        logo: EchoValleyLogo
-    },
-    {
-        name: "Outside",
-        logo: OutsideLogo
-    },
-    {
-        name: "Pulse",
-        logo: PulseLogo
-    },
-    {
-        name: "Quantum",
-        logo: QuantumLogo
-    },
-]
 
 export default function Companies(){
     return(

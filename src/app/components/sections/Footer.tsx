@@ -1,42 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube, faXTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
-  
-const navItems = [
-    {
-      name: "Features",
-      href: "#features",
-    },
-    {
-      name: "Pricing",
-      href: "#pricing",
-    },
-    {
-      name: "Testimonials",
-      href: "#testimonials",
-    },
-    {
-      name: "Login",
-      href: "#",
-    },
-];
-  
-const socialLinks = [
-    {
-      name: "Youtube",
-      icon: faYoutube,
-      href: "#",
-    },
-    {
-      name: "X",
-      icon: faXTwitter,
-      href: "#",
-    },
-    {
-      name: "Discord",
-      icon: faDiscord,
-      href: "#",
-    },
-];
+import { navItems, socialLinks } from "@/app/utils";
 
 export default function Footer(){
     return(
