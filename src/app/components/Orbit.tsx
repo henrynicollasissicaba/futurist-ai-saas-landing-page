@@ -1,30 +1,33 @@
-import { HTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
-
-function Orbit(props: HTMLAttributes<HTMLDivElement>){
+function Orbit({ size }: { size: number }){
     return(
         <div
-            className={twMerge("border border-gray-200/30 rounded-full absolute-center -z-10 isolate", props.className)}
+            className="border border-gray-200/30 rounded-full"
+            style={{
+                width: `${size}px`,
+                height: `${size}px`
+            }}
         ></div>
     )
 }
 
 interface OrbitsSystemProps {
     count: number
-    baseSize: number
+    baseSize?: number
+    step?: number
 }
 
-export default function OrbitsSystem({ count, baseSize }: OrbitsSystemProps){
+export default function OrbitsSystem({ count, baseSize = 200, step = 150 }: OrbitsSystemProps){
     return(
         <>
             {Array.from({ length: count }).map((_, i) => {
-                const size = baseSize + (i * 150)
+                const size = baseSize + (i * step)
 
                 return(
-                    <Orbit 
-                        key={i}
-                        className={`size-[${size}px]`}
-                    />
+                    <div className="absolute-center isolate -z-10" key={i}>
+                        <Orbit 
+                            size={size}
+                        />
+                    </div>
                 )
             })}
         </>

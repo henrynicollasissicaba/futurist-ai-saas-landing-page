@@ -12,7 +12,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps){
     
     return(
         <div className="md:hidden fixed top-18 left-0 bottom-0 right-0 bg-gray-950 z-30 overflow-hidden">
-            <OrbitsSystem count={4} baseSize={200}/>
+            <OrbitsSystem count={4} />
             
             <div className="container h-full">
                 <nav className="flex flex-col items-center gap-4 py-8 h-full justify-center">

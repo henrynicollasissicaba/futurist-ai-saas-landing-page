@@ -11,6 +11,7 @@ import SectionContent from "../SectionContent"
 import LoaderAnimated from "../LoaderAnimated"
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
+import OrbitsSystem from "../Orbit"
 
 export const useMousePosition = () => {
     const [innerWidth, setInnerWidth] = useState(1)
@@ -67,21 +68,13 @@ export default function Hero(){
                             className="absolute inset-0 -z-10 bg-[radial-gradient(circle_farthest-corner,#721378_50%,#312c85_75%,transparent)]
                             [mask-image:radial-gradient(circle_farthest-side,black,transparent)]"
                         ></div>
-                        <div className="absolute-center isolate -z-10">
-                            <Orbit className="size-[350px]" />
-                        </div>
-                        <div className="absolute-center isolate -z-10">
-                            <Orbit className="size-[600px]" />
-                        </div>
-                        <div className="absolute-center isolate -z-10">
-                            <Orbit className="size-[850px]" />
-                        </div>
-                        <div className="absolute-center isolate -z-10">
-                            <Orbit className="size-[1100px]" />
-                        </div>
-                        <div className="absolute-center isolate -z-10">
-                            <Orbit className="size-[1350px]" />
-                        </div>
+
+                        <OrbitsSystem 
+                            count={5}
+                            baseSize={350}
+                            step={250}
+                        />
+
                         <h1
                             className="text-3xl md:text-5xl lg:text-6xl font-semibold text-center text-gray-100 leading-tight
                             max-w-4xl mx-auto"
