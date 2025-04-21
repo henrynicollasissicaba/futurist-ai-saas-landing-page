@@ -24,13 +24,13 @@ posicionamento de imagens absolutas, responsividade, criação de componentes re
   <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
   <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
   <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
-  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original-wordmark.svg" />
 </div>
 
 ---
 
 ## Demo :camera:
-<img width="100%" height="100%" src="/src/assets/readme-img/demo.png" />
+<img width="100%" height="100%" src="./src/assets/readme-img/demo.png" />
 
 ---
 
