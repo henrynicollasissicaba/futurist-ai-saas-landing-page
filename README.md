@@ -1,4 +1,4 @@
-<h3 align="center">Futuristic AI SaaS Landing Page | Concluído :white_check_mark:</h3>
+<h3 align="center">Futurist AI SaaS Landing Page | Concluído :white_check_mark:</h3>
 
 ---
 
