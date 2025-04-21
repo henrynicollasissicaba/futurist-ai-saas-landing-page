@@ -5,7 +5,7 @@ import SectionContent from "../SectionContent"
 import Button from "../Button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
-import { Orbit } from "../Orbit"
+import Orbit from "../Orbit"
 import SpherealLogo from "../logos/SpherealLogo"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -16,7 +16,7 @@ export default function Features(){
         <section id="features">
             <div className="container">
                 <SectionBorder borderTop>
-                    <SectionContent className="md:px-20 lg:px-40">
+                    <SectionContent className="md:px-20">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                             <div>
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-200">Your AI-powered collaboration companion</h2>

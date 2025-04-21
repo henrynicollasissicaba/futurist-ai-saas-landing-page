@@ -3,8 +3,8 @@
 import Button from "../Button";
 import { useState } from "react";
 import SpherealLogo from "../logos/SpherealLogo";
-import { loginItems, navItems } from "@/app/utils";
 import MobileNav from "../MobileNav";
+import { loginItems, navItems } from "@/app/utils";
 import MobileMenuButton from "../MobileMenuButton";
 
 export default function Header() {
@@ -49,7 +49,7 @@ export default function Header() {
 
                         <div className="flex items-center lg:hidden">
                             <MobileMenuButton 
-                                isOpen={isMobileNavOpen}
+                                isOpen={isMobileNavOpen} 
                                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
                             />
                         </div>
@@ -58,8 +58,8 @@ export default function Header() {
             </header>
             {isMobileNavOpen && (
                 <MobileNav 
-                    isOpen={isMobileNavOpen}
-                    onClose={() => setIsMobileNavOpen(!isMobileNavOpen)}
+                    isOpen={isMobileNavOpen} 
+                    onClose={() => setIsMobileNavOpen(!isMobileNavOpen)} 
                 />
             )}
         </>

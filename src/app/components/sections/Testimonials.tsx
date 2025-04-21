@@ -12,7 +12,6 @@ import { testimonials } from "@/app/utils/testimonials";
 export default function Testimonials(){
     const [testimonialIndex, setTestimonialIndex] = useState(0)
 
-
     return(
         <section id="testimonials">
             <div className="container">
@@ -69,7 +68,7 @@ export default function Testimonials(){
                                                     layoutId="testimonial-dot"
                                                 />
                                             )}
-                                            <div className="size-1.5 bg-gray-200 rounded-full"></div>
+                                            <div className="size-1.5 bg-gray-200 rounded-full" />
                                         </div>
                                     ))}
                                 </motion.div>

@@ -8,10 +8,10 @@ import SectionContent from "../SectionContent"
 import LoaderAnimated from "../LoaderAnimated"
 import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { useRef } from "react"
-import { OrbitsSystem } from "../Orbit"
 import HeroPlanets from "../planets/HeroPlanets"
 import useMousePosition from "@/app/hooks/useMousePosition"
 import SpherealText from "../SpherealText"
+import OrbitsHero from "../orbits/OrbitsHero"
 
 export default function Hero(){
     const { xProgress, yProgress } = useMousePosition()
@@ -40,13 +40,9 @@ export default function Hero(){
                         <div 
                             className="absolute inset-0 -z-10 bg-[radial-gradient(circle_farthest-corner,#721378_50%,#312c85_75%,transparent)]
                             [mask-image:radial-gradient(circle_farthest-side,black,transparent)]"
-                        ></div>
-
-                        <OrbitsSystem 
-                            count={5}
-                            baseSize={350}
-                            step={250}
                         />
+
+                        <OrbitsHero />
 
                         <h1
                             className="text-3xl md:text-5xl lg:text-6xl font-semibold text-center text-gray-100 leading-tight
@@ -61,6 +57,7 @@ export default function Hero(){
                             Harness the power of AI with Sphereal. Elevate your productivity and streamline your workflow with 
                             our cutting-edge AI chat platform.
                         </p>
+                        
                         <div className="flex justify-center">
                             <Button 
                                 variant="secondary"
@@ -69,7 +66,8 @@ export default function Hero(){
                                 Start Chatting
                             </Button>
                         </div>
-                        <div className="relative isolate max-w-5xl mx-auto">
+
+                        <div className="relative isolate max-w-4xl mx-auto">
                             <motion.div 
                                 className="absolute left-1/2 top-0" 
                                 style={{

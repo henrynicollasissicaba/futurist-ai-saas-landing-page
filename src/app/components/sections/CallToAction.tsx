@@ -1,13 +1,13 @@
 "use client"
 
 import Button from "../Button";
-import { OrbitsSystem } from "../Orbit";
 import SectionBorder from "../SectionBorder";
 import SectionContent from "../SectionContent";
 import useMousePosition from "@/app/hooks/useMousePosition";
 import { motion, useSpring, useTransform } from "framer-motion";
 import CallToActionPlanets from "../planets/CallToActionPlanets";
 import SpherealText from "../SpherealText";
+import OrbitsCallToAction from "../orbits/OrbitsCallToAction";
 
 export default function CallToAction(){
     const { xProgress, yProgress } = useMousePosition()
@@ -28,7 +28,7 @@ export default function CallToAction(){
                             [mask-image:radial-gradient(circle_farthest-side,black,transparent)] -z-10" 
                         />
 
-                        <OrbitsSystem count={5} />
+                        <OrbitsCallToAction />
 
                         <motion.div 
                             className="absolute-center -z-10"
@@ -39,6 +39,7 @@ export default function CallToAction(){
                         >
                             <CallToActionPlanets />
                         </motion.div>
+
                         <h2 
                             className="text-gray-200 font-semibold text-3xl md:text-4xl lg:text-5xl text-center leading-tight
                             max-w-3xl mx-auto"
